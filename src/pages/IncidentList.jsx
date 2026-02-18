@@ -24,7 +24,7 @@ const IncidentList = () => {
                 if (!token) { navigate('/login'); return; }
 
                 const config = { headers: { Authorization: `Bearer ${token}` } };
-                const { data } = await axios.get('http://https://st-incident-backend.onrender.com/api/incidents', config);
+                const { data } = await axios.get('https://st-incident-backend.onrender.com/api/incidents', config);
                 setIncidents(data);
                 setFilteredIncidents(data);
             } catch (err) {

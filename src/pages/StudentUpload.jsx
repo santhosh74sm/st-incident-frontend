@@ -38,7 +38,7 @@ const StudentUpload = () => {
                 }
             };
 
-            const response = await axios.post('http://https://st-incident-backend.onrender.com/api/students/upload', formData, config);
+            const response = await axios.post('https://st-incident-backend.onrender.com/api/students/upload', formData, config);
             
             setMessage({ 
                 type: 'success', 

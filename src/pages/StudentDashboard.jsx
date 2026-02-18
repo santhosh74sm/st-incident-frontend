@@ -20,7 +20,7 @@ const StudentDashboard = () => {
         const fetchMyIncidents = async () => {
             try {
                 const config = { headers: { Authorization: `Bearer ${user.token}` } };
-                const { data } = await axios.get('http://https://st-incident-backend.onrender.com/api/incidents', config);
+                const { data } = await axios.get('https://st-incident-backend.onrender.com/api/incidents', config);
                 setIncidents(data);
             } catch (err) {
                 console.error("Fetch Error:", err);

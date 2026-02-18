@@ -12,7 +12,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://https://st-incident-backend.onrender.com/api/auth/register', formData);
+            await axios.post('https://st-incident-backend.onrender.com/api/auth/register', formData);
             alert("Staff Account Created Successfully!");
             navigate('/login');
         } catch (err) {

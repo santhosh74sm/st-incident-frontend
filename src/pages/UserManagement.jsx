@@ -38,12 +38,12 @@ const UserManagement = () => {
         try {
             const config = { headers: { Authorization: `Bearer ${user.token}` } };
             if (view === 'Staff') {
-                const res = await axios.get('http://https://st-incident-backend.onrender.com/api/auth/users', config);
+                const res = await axios.get('https://st-incident-backend.onrender.com/api/auth/users', config);
                 setUsersList(res.data.sort((a, b) => a.name.localeCompare(b.name)));
             } else {
-                let url = 'http://https://st-incident-backend.onrender.com/api/students/all';
+                let url = 'https://st-incident-backend.onrender.com/api/students/all';
                 if (classFilter || sectionFilter) {
-                    url = `http://https://st-incident-backend.onrender.com/api/students/filter?className=${classFilter}&section=${sectionFilter}`;
+                    url = `https://st-incident-backend.onrender.com/api/students/filter?className=${classFilter}&section=${sectionFilter}`;
                 }
                 const res = await axios.get(url, config);
                 setStudentRegistry(res.data.sort((a, b) => a.name.localeCompare(b.name)));
@@ -60,7 +60,7 @@ const UserManagement = () => {
         e.preventDefault();
         try {
             const config = { headers: { Authorization: `Bearer ${user.token}` } };
-            await axios.post('http://https://st-incident-backend.onrender.com/api/students', newStudent, config);
+            await axios.post('https://st-incident-backend.onrender.com/api/students', newStudent, config);
             alert("Student Record Created Successfully!");
             setShowAddForm(false);
             setNewStudent({ name: '', admissionNo: '', className: '', section: '' });
@@ -74,7 +74,7 @@ const UserManagement = () => {
         if (!window.confirm(`Delete this ${type}?`)) return;
         try {
             const config = { headers: { Authorization: `Bearer ${user.token}` } };
-            const url = type === 'Staff' ? `http://https://st-incident-backend.onrender.com/api/auth/users/${id}` : `http://https://st-incident-backend.onrender.com/api/students/${id}`;
+            const url = type === 'Staff' ? `https://st-incident-backend.onrender.com/api/auth/users/${id}` : `https://st-incident-backend.onrender.com/api/students/${id}`;
             await axios.delete(url, config);
             fetchData();
         } catch (err) { alert("Error deleting user."); }

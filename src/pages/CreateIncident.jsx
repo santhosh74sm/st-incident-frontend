@@ -36,9 +36,9 @@ const CreateIncident = () => {
     const fetchInitialData = async () => {
         try {
             const config = { headers: { Authorization: `Bearer ${user.token}` } };
-            const resFilters = await axios.get('http://https://st-incident-backend.onrender.com/api/students/filters', config);
-            const resCat = await axios.get('http://https://st-incident-backend.onrender.com/api/incidents/categories', config);
-            const resLoc = await axios.get('http://https://st-incident-backend.onrender.com/api/incidents/locations', config);
+            const resFilters = await axios.get('https://st-incident-backend.onrender.com/api/students/filters', config);
+            const resCat = await axios.get('https://st-incident-backend.onrender.com/api/incidents/categories', config);
+            const resLoc = await axios.get('https://st-incident-backend.onrender.com/api/incidents/locations', config);
 
             setDbFilters({
                 classes: resFilters.data.classes || [],
@@ -55,7 +55,7 @@ const CreateIncident = () => {
     useEffect(() => {
         if (formData.class && formData.section) {
             axios.get(
-                `http://https://st-incident-backend.onrender.com/api/students/filter?className=${formData.class}&section=${formData.section}`,
+                `https://st-incident-backend.onrender.com/api/students/filter?className=${formData.class}&section=${formData.section}`,
                 { headers: { Authorization: `Bearer ${user.token}` } }
             ).then(res => {
                 const sorted = res.data.sort((a, b) => a.name.localeCompare(b.name));
@@ -82,7 +82,7 @@ const CreateIncident = () => {
 
         try {
             await axios.post(
-                `http://https://st-incident-backend.onrender.com/api/incidents/${url}`,
+                `https://st-incident-backend.onrender.com/api/incidents/${url}`,
                 { name: newField.val },
                 { headers: { Authorization: `Bearer ${user.token}` } }
             );
@@ -112,7 +112,7 @@ const CreateIncident = () => {
         if (image) data.append('image', image);
 
         try {
-            await axios.post('http://https://st-incident-backend.onrender.com/api/incidents', data, {
+            await axios.post('https://st-incident-backend.onrender.com/api/incidents', data, {
                 headers: {
                     Authorization: `Bearer ${user.token}`,
                     'Content-Type': 'multipart/form-data'

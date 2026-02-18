@@ -19,7 +19,7 @@ const IncidentDetail = () => {
         const fetchIncident = async () => {
             try {
                 const config = { headers: { Authorization: `Bearer ${user.token}` } };
-                const { data } = await axios.get(`http://https://st-incident-backend.onrender.com/api/incidents`, config);
+                const { data } = await axios.get(`https://st-incident-backend.onrender.com/api/incidents`, config);
                 const current = data.find(i => i._id === id);
                 if (current) {
                     setIncident(current);
@@ -46,7 +46,7 @@ const IncidentDetail = () => {
             };
 
             const response = await axios.patch(
-                `http://https://st-incident-backend.onrender.com/api/incidents/${id}/status`,
+                `https://st-incident-backend.onrender.com/api/incidents/${id}/status`,
                 { status, actionTaken },
                 config
             );
@@ -72,7 +72,7 @@ const IncidentDetail = () => {
         if (window.confirm("Delete this report?")) {
             try {
                 await axios.delete(
-                    `http://https://st-incident-backend.onrender.com/api/incidents/${id}`,
+                    `https://st-incident-backend.onrender.com/api/incidents/${id}`,
                     { headers: { Authorization: `Bearer ${user.token}` } }
                 );
                 alert('Deleted!');
@@ -177,7 +177,7 @@ const IncidentDetail = () => {
                                 </h4>
                                 {incident.image ? (
                                     <img
-                                        src={`http://https://st-incident-backend.onrender.com/${incident.image.replace(/\\/g, "/")}`}
+                                        src={`https://st-incident-backend.onrender.com/${incident.image.replace(/\\/g, "/")}`}
                                         alt="evidence"
                                         className="w-full h-56 object-cover rounded-3xl border shadow-md"
                                     />

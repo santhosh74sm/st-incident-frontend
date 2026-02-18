@@ -18,7 +18,7 @@ const Login = () => {
         setError('');
         try {
             // ✅ loginType: 'staff' add panniyachu
-            const { data } = await axios.post('http://https://st-incident-backend.onrender.com/api/auth/login', { 
+            const { data } = await axios.post('https://st-incident-backend.onrender.com/api/auth/login', { 
                 email, password, loginType: 'staff' 
             });
             

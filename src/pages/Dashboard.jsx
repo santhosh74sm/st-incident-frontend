@@ -14,7 +14,7 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchDashboardData = async () => {
             try {
-                const { data } = await axios.get('http://https://st-incident-backend.onrender.com/api/incidents', {
+                const { data } = await axios.get('https://st-incident-backend.onrender.com/api/incidents', {
                     headers: { Authorization: `Bearer ${user.token}` }
                 });
                 setIncidents(data);
